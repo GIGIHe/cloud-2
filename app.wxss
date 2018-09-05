@@ -1,0 +1,5 @@
+
+/* 这是全局样式 */
+.container{
+padding:0 20rpx;
+}
