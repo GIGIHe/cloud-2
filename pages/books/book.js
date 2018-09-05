@@ -9,8 +9,11 @@ Page({
     titleId: "",
     bookId: "",
     catalog: [],
+    font: 40,
     isShow: false,
-    isLoading: false
+    isLoading: false,
+    index:"",
+    title:""
   },
 
   /**
@@ -27,15 +30,18 @@ Page({
   },
   getData() {
     this.setData({
-      isLoading: true
+      isLoading: true,
+     
     })
     fetch.get(`/article/${this.data.titleId}`).then(res => {
       //将markdown转化为towxml数据
-      let data = app.towxml.toJson(res.data.article.content, 'markdown');
+      // let data = app.towxml.toJson(res.data.article.content, 'markdown');
+      console.log(res)
       this.setData({
-        article: data,
+        article: res.data.article.content,
         title: res.data.title,
-        isLoading: false
+        index: res.data.article.index,
+         isLoading: false
       })
     }).catch(err=>{
       this.setData({
@@ -56,13 +62,63 @@ Page({
     this.setData({
       isShow
     })
+
   },
   handleGet(e) {
+    console.log(e)
     const id = e.currentTarget.dataset.id
     this.setData({
-      titleId: id
+      titleId: id,
+      isShow:false
     })
     this.getData()
+  },
+  handleAdd(){
+    this.setData({
+      font:this.data.font+2
+    })
+  },
+  handleReduce() {
+    if (this.data.font <= 24) {
+  wx.showModal({
+    title: '温馨提示',
+    content: '字体太小会影响您的视力',
+    showCancel:false
+  })
+    }else{
+      this.setData({
+
+        font: this.data.font - 2
+      })
+    }
+    
+  },
+  prev() {
+    let catalog = this.data.catalog
+    if(this.data.index-1<0){
+      wx.showToast({
+        title: '已是第一章',
+      })
+    }else{
+      this.setData({
+        titleId: catalog[this.data.index - 1]._id,
+      })
+    }
+    this.getData()
+  },
+  next(){
+    let catalog = this.data.catalog
+    if(catalog[this.data.index+1]){
+      this.setData({
+        titleId:catalog[this.data.index+1]._id
+      })
+      this.getData()
+    }
+    else{
+      wx.showToast({
+        title: '已完结',
+      })
+    }
   },
   onShareAppMessage: function() {
 

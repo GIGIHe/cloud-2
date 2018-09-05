@@ -7,7 +7,7 @@ Page({
     mainContent: [],
     indicatorDots: true,
     autoplay: true,
-    interval: 2000,
+    interval: 1500,
     duration: 1000,
     isLoading:false
   },
@@ -38,7 +38,6 @@ Page({
       this.setData({
         mainContent:res.data
       })
-
     })
   },
   jump(e){

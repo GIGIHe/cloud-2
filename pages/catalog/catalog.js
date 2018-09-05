@@ -1,28 +1,40 @@
 // pages/catalog/catalog.js
-import {fetch} from "../../utils/util.js"
+import {
+  fetch
+} from "../../utils/util.js"
+
 const app = getApp();
 Page({
 
   data: {
-  bookId:"", 
-  catalogData:[]
+    bookId: "",
+    catalogData: [],
+    isLoading: false
   },
-  onLoad: function (options) {
+  onLoad: function(options) {
     console.log(options)
     this.setData({
-      bookId:options.id
+      bookId: options.id
     })
-  this.getData();
+    this.getData();
   },
-getData(){
-  fetch.get(`/titles/${this.data.bookId}`).then(res=>{
-    console.log(res)
+  getData() {
     this.setData({
-      catalogData:res.data
+      isLoading:true
     })
-  })
-},
-  onShareAppMessage: function () {
-  
+    fetch.get(`/titles/${this.data.bookId}`).then(res => {
+      console.log(res)
+      this.setData({
+        catalogData: res.data,
+        isLoading:false
+      })
+    }).catch(err=>{
+      this.setData({
+        isLoading: false
+      })
+    })
+  },
+  onShareAppMessage: function() {
+
   }
 })

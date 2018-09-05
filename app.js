@@ -1,5 +1,5 @@
 //app.js
-const Towxml = require('./towxml/main')//引入towxml
+// const Towxml = require('./towxml/main')//引入towxml
 App({
 
   /**
@@ -8,10 +8,10 @@ App({
   onLaunch: function () {
     
   },
-  towxml : new Towxml(),//创建towxml对象，供小程序页面使用
-  globalData: {
-    userInfo: null
-  },
+  // towxml : new Towxml(),//创建towxml对象，供小程序页面使用
+  // globalData: {
+  //   userInfo: null
+  // },
   /**
    * 当小程序启动，或从后台进入前台显示，会触发 onShow
    */

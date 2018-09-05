@@ -3,3 +3,10 @@
 .container{
 padding:0 20rpx;
 }
+.loading{
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 998;
+  transform: translate3d(-50%,-50%,0);
+}
