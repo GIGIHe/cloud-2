@@ -1,5 +1,7 @@
 // pages/detail/detail.js
-import {fetch} from "../../utils/util.js"
+import {
+  fetch
+} from "../../utils/util.js"
 const app = getApp();
 Page({
 
@@ -9,7 +11,9 @@ Page({
   data: {
     bookId: "",
     bookData: {},
-    isLoading:false
+    isLoading: false,
+    isCollect: false,
+   
   },
 
   /**
@@ -17,10 +21,11 @@ Page({
    */
   onLoad: function(options) {
     console.log(options)
-    this.setData({ 
+    this.setData({
       bookId: options.id
     })
     this.getData()
+    // this.getEnshrine()
   },
   getData() {
     this.setData({
@@ -32,63 +37,57 @@ Page({
         bookData: res,
         isLoading: false
       })
-    }).catch(err=>{
+    }).catch(err => {
       this.setData({
         isLoading: false
       })
     })
   },
-  jumpCatalog(){
+  jumpCatalog() {
     wx.navigateTo({
       url: `/pages/catalog/catalog?id=${this.data.bookId}`,
     })
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
 
-  },
+  // 收藏--------------
+  // getEnshrine() {
+  //   fetch.get(`/collection?pn=1&size=10`).then((res) => {
+  //     res.data.forEach(item => {
+  //       if (item.bookData._id == this.data.bookId) {
+  //         this.setData({
+  //           isEnshrine: true,
+  //         })
+  //       }
+  //     })
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
+  //   })
+  // },
 
-  },
+  // handleCollect() {
+  //   if (this.data.isCollect) {
+  //     fetch.post(`/collection/delete`, {
+  //       arr: [this.data.bookId]
+  //     }).then(res => {
+  //       // console.log(res);
+  //       this.setData({
+  //         isCollect: false
+  //       })
+  //     })
+  //   } else {
+  //     fetch.post('/collection', {
+  //       bookId: this.data.bookId
+  //     }).then(res => {
+  //       console.log(res)
+  //       this.getEnshrine()
+  //     })
+  //   }
+  // },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
+  onShareAppMessage: function(res) {
+    return {
+      title: this.data.bookData.title,
+      path: `/pages/detail/detail?id=${this.data.bookId}`,
+      imgUrl: this.data.bookData.data.img
+    }
   }
 })

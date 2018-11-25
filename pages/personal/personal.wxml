@@ -1,0 +1,21 @@
+<!--pages/personal/personal.wxml-->
+<view class='outer'>
+<view class='user-msg'>
+  <image class='img' src='{{userInfo.avatarUrl}}'></image>
+  <view class='user-introduce'>
+  <text class='user-name'>{{userInfo.nickName}}</text>
+  <text>这家伙很懒，什么都没有留下</text>
+  </view>
+</view>
+<view class='c-n'>
+<view class='collect'>
+<text>0</text>
+<text>收藏</text>
+</view>
+<view class='notice'>
+<text>4</text>
+<text>关注</text>
+</view>
+</view>
+</view>
+<button wx:if="{{isShow}}" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">获取用户信息</button>

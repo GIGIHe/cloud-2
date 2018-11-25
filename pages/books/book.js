@@ -33,6 +33,7 @@ Page({
       isLoading: true,
      
     })
+  // 显示文章内容
     fetch.get(`/article/${this.data.titleId}`).then(res => {
       //将markdown转化为towxml数据
       // let data = app.towxml.toJson(res.data.article.content, 'markdown');
@@ -49,6 +50,7 @@ Page({
       })
     })
   },
+  // 获取文章目录
   getCatalog() {
     fetch.get(`/titles/${this.data.bookId}`).then(res => {
       console.log(res)
@@ -57,6 +59,7 @@ Page({
       })
     })
   },
+  // 切换目录显示与否
   toggleCatalog() {
     let isShow = !this.data.isShow
     this.setData({
@@ -64,6 +67,7 @@ Page({
     })
 
   },
+  
   handleGet(e) {
     console.log(e)
     const id = e.currentTarget.dataset.id
@@ -73,11 +77,13 @@ Page({
     })
     this.getData()
   },
+  // 字体变大
   handleAdd(){
     this.setData({
       font:this.data.font+2
     })
   },
+  // 字体变小
   handleReduce() {
     if (this.data.font <= 24) {
   wx.showModal({
@@ -93,6 +99,7 @@ Page({
     }
     
   },
+  // 前一页
   prev() {
     let catalog = this.data.catalog
     if(this.data.index-1<0){
@@ -106,6 +113,7 @@ Page({
     }
     this.getData()
   },
+  // 后一页
   next(){
     let catalog = this.data.catalog
     if(catalog[this.data.index+1]){

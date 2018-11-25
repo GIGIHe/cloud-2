@@ -1,0 +1,52 @@
+/* pages/personal/personal.wxss */
+
+.outer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 16px;
+  color: #fff;
+}
+
+.user-msg {
+  display: flex;
+  height: 200rpx;
+justify-content: space-around;
+  align-items: center;
+  background: rgba(17, 33, 255, 0.623);
+}
+
+.user-msg .img {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
+.user-introduce {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.user-introduce .user-name {
+  font-weight: 700;
+}
+
+.c-n {
+  padding-bottom: 30rpx;
+  display: flex;
+  justify-content: space-around;
+  background: rgba(17, 33, 255, 0.623);
+}
+
+.c-n .collect {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+}
+
+.c-n .notice {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+}

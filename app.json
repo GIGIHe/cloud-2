@@ -3,12 +3,38 @@
     "pages/index/index",
     "pages/detail/detail",
     "pages/catalog/catalog",
-    "pages/books/book"
+    "pages/books/book",
+    "pages/study/study",
+    "pages/personal/personal"
   ],
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#cee",
+    "backgroundColor": "#e44",
     "navigationBarTitleText": "online-book",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#f00",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/static/img/home.png",
+        "selectedIconPath": "/static/img/home2.png"
+      },
+      {
+        "pagePath": "pages/study/study",
+        "text": "我的学习",
+        "iconPath": "/static/img/行程.png",
+        "selectedIconPath": "/static/img/行程_2.png"
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "text": "个人中心",
+        "iconPath": "/static/img/个人.png",
+        "selectedIconPath": "/static/img/个人_2.png"
+      }
+    ]
   }
 }

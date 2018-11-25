@@ -40,6 +40,7 @@ margin-bottom: -10rpx;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp:3;
+  text-overflow: ellipsis;
   line-height: 1.5;
   overflow: hidden;
   font-size: 14px;
@@ -50,4 +51,32 @@ margin-bottom: -10rpx;
 display: flex;
 font-size: 12px;
 justify-content: space-between;
+}
+.more-loading{
+  margin-top: 20rpx;
+  display: flex;
+justify-content: center;
+text-align: center;
+height: 160rpx;
+}
+.more-loading .more-img{
+  height: 60rpx;
+  width: 60rpx;
+}
+.more-text{
+  margin-left: 20rpx;
+}
+.no-more{
+  height: 100rpx;
+  background: #f1f1f1;
+  text-align: center;
+  line-height: 100rpx;
+}
+.no-more .nomore-b{
+  font-size: 12px;
+  color: #999
+}
+.no-more .line{
+  height: 1rpx;
+  background: #f00;
 }

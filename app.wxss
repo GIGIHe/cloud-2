@@ -1,12 +1,18 @@
-
 /* 这是全局样式 */
-.container{
-padding:0 20rpx;
+
+.container {
+  padding: 0 20rpx;
 }
-.loading{
+
+.loading {
   position: fixed;
+  z-index: 998;
   left: 50%;
   top: 50%;
-  z-index: 998;
-  transform: translate3d(-50%,-50%,0);
+  transform: translate3d(-50%, -50%, 0);
+  /* left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto; */
 }

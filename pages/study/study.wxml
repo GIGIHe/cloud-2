@@ -1,0 +1,18 @@
+<!--pages/study/study.wxml-->
+<view class='container'>
+<view class='box' wx:for="{{arr}}" wx:key = "{{index}}">
+<view class='box-l'>
+<image class='box-l-img' src='{{item.book.img}}'></image>
+</view>
+<view class='box-r'>
+<view class='title'>{{item.book.title}}</view>
+<progress percent="20" show-info active active-mode ="forwards"/>
+<view class='chapter'>书籍10/39章节</view>
+<view class='btn'>
+<button class='btn-l' bindtap="goRead" data-id="{{item.title._id}}" data-bookid = "{{item.title.bookId}}">继续阅读</button>
+<button class='btn-r'>查看文档</button>
+</view>
+</view>
+</view>
+<view class='total'>已全部加载</view>
+</view>
