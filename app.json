@@ -6,6 +6,8 @@
     "pages/books/book",
     "pages/study/study",
     "pages/personal/personal"
+
+   
   ],
   "window": {
     "backgroundTextStyle": "dark",

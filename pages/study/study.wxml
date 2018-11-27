@@ -6,11 +6,11 @@
 </view>
 <view class='box-r'>
 <view class='title'>{{item.book.title}}</view>
-<progress percent="20" show-info active active-mode ="forwards"/>
-<view class='chapter'>书籍10/39章节</view>
+<progress percent="{{((item.title.index+1)/(item.title.total))*100}}" show-info active active-mode ="forwards"/>
+<view class='chapter'>书籍{{item.title.index+1}}/{{item.title.total}}章节</view>
 <view class='btn'>
 <button class='btn-l' bindtap="goRead" data-id="{{item.title._id}}" data-bookid = "{{item.title.bookId}}">继续阅读</button>
-<button class='btn-r'>查看文档</button>
+<button class='btn-r' bindtap='readBook' data-id='{{item.book._id}}'>查看文档</button>
 </view>
 </view>
 </view>

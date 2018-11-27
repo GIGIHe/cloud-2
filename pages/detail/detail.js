@@ -48,6 +48,37 @@ Page({
       url: `/pages/catalog/catalog?id=${this.data.bookId}`,
     })
   },
+// 收藏图书
+  handleCollect(){
+  // 判断是否收藏
+    if (!this.data.isCollect){
+      console.log(this.data.bookId)
+      fetch.post('/collection',{bookId:this.data.bookId}).then((res)=>{
+        console.log(res)
+       this.setData({
+         isCollect: true
+       })
+       wx.showToast({
+         title: '收藏成功',
+       })
+     })
+   }else{
+      fetch.delete(`/collection/${this.data.bookId}`).then((res)=>{
+        console.log(res)
+        this.setData({
+          isCollect: false
+        })
+        wx.showToast({
+          title: '取消收藏',
+        })
+      })
+   }
+    
+  },
+
+
+
+
 
   // 收藏--------------
   // getEnshrine() {
@@ -63,25 +94,6 @@ Page({
   //   })
   // },
 
-  // handleCollect() {
-  //   if (this.data.isCollect) {
-  //     fetch.post(`/collection/delete`, {
-  //       arr: [this.data.bookId]
-  //     }).then(res => {
-  //       // console.log(res);
-  //       this.setData({
-  //         isCollect: false
-  //       })
-  //     })
-  //   } else {
-  //     fetch.post('/collection', {
-  //       bookId: this.data.bookId
-  //     }).then(res => {
-  //       console.log(res)
-  //       this.getEnshrine()
-  //     })
-  //   }
-  // },
 
   onShareAppMessage: function(res) {
     return {

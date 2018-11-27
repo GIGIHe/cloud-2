@@ -1,0 +1,7 @@
+<!--pages/star.wxml-->
+<view>
+<image src='/static/img/rank_1.gif'></image>
+<image src='/static/img/rank_2.gif'></image>
+<image src='/static/img/rank_3.gif'></image>
+<image src='/static/img/rank_4.gif'></image>
+</view>

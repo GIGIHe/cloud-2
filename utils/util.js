@@ -14,7 +14,6 @@ const fetch = {
         data,
         header,
         success(res) {
-          console.log(res);
           resolve(res.data);
           let t = res.header.Token || res.header.token
           if (t){
@@ -33,18 +32,21 @@ const fetch = {
   },
   post(url, data) {
     return this.http(url, 'POST', data)
+  },
+  delete(url,data){
+    return this.http(url,'delete',data)
   }
 }
 const login = () => {
   wx.login({
     success(res) {
-      console.log(res)
+      console.log('code',res.code)
       fetch.post("/login", {
         code: res.code,
         appid: "wxcfdb77c030f98476",
         secret: "b14d8a585e75e7fc1525fb690a890f8f"
       }).then(res=>{
-          console.log(res)
+          console.log('res',res)
       }) 
     }
   })

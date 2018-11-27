@@ -1,6 +1,6 @@
 <!--pages/books/book.wxml-->
 <!-- <import src = "/towxml/entry.wxml"/> -->
-<view class='book'>
+<view class='book container'>
 <image src='/static/img/loading.svg' class="loading" wx:if="{{isLoading}}"></image>
 <view class='wemark-wrap' style = "{{'font-size:'+font+'rpx'}}" wx:else>
 <wemark md="{{article}}" highlight type="rich-text" ></wemark>

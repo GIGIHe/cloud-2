@@ -1,0 +1,5 @@
+/* pages/star.wxss */
+image{
+  width: 30rpx;
+  height: 40rpx;
+}

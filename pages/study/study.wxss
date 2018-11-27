@@ -34,7 +34,7 @@
 .box-r .btn .btn-r
 {
   font-size: 12px;
-  width: 160rpx;
+  width: 180rpx;
   height: 60rpx;
   line-height: 60rpx;
   margin-right: 10rpx;
